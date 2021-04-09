@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //serializable
 @Entity
 @Table(name = "tb_genre")
@@ -25,6 +27,7 @@ public class Genre implements Serializable {
 	private String name;
 	
 	//associação de mao dupla
+	@JsonIgnore
 	@OneToMany(mappedBy = "genre")
 	private List <Game> games = new ArrayList<>();
 	

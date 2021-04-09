@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //essa classe vai ter o registro gravado da pesquisa
 //associação com genre e games
 
@@ -29,6 +31,7 @@ public class Record implements Serializable{
 	private Instant moment;
 	
 	//associação
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "game_id")
 	private Game game;
